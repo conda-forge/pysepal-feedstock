@@ -56,7 +56,7 @@ requirements:
     - natsort
     - typing-extensions
     - solara
-    - ee-client >=2.5.0
+    - ee-client >=2.5.2
     - colorlog
     - reactivex
 
