@@ -1,5 +1,5 @@
 {% set name = "pysepal" %}
-{% set version = "3.6.1" %}
+{% set version = "3.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6a1c605107297ed3649e275b669d13cc47526b460c68a201083d1dc09208dcb4
+  sha256: f383eb690d7e9dff7b6add3babd6885c1f38d1ffefa7887f5b43d52ebe7c57da
 
 build:
   entry_points:
