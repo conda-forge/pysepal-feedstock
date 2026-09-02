@@ -1,13 +1,13 @@
 {% set name = "pysepal" %}
-{% set version = "3.6.2" %}
+{% set version = "3.8.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f383eb690d7e9dff7b6add3babd6885c1f38d1ffefa7887f5b43d52ebe7c57da
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: ad3c4f00cf989c9a1adf0d8a7b0d89d85d8e9b7b8ade336d3b927806824f4b96
 
 build:
   entry_points:
