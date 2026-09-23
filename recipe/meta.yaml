@@ -1,5 +1,5 @@
 {% set name = "pysepal" %}
-{% set version = "3.8.3" %}
+{% set version = "4.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ad3c4f00cf989c9a1adf0d8a7b0d89d85d8e9b7b8ade336d3b927806824f4b96
+  sha256: 917ca2ee2da05144c384cfe127311faf0e993ad80a40d63e9c66e3745e369189
 
 build:
   entry_points:
@@ -21,7 +21,7 @@ build:
     - entry_point = pysepal.bin.entry_point:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
