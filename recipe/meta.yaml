@@ -1,5 +1,5 @@
 {% set name = "pysepal" %}
-{% set version = "3.8.3" %}
+{% set version = "4.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,21 +7,19 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ad3c4f00cf989c9a1adf0d8a7b0d89d85d8e9b7b8ade336d3b927806824f4b96
+  sha256: f8e2a2d4307a2ca600c6922a5c6fbea84f1eb5ad596ea002202d4716d11917ec
 
 build:
   entry_points:
     - module_deploy = pysepal.bin.module_deploy:main
     - module_factory = pysepal.bin.module_factory:main
-    - module_l10n = pysepal.bin.module_l10n:main
-    - module_theme = pysepal.bin.module_theme:main
     - module_venv = pysepal.bin.module_venv:main
     - activate_venv = pysepal.bin.activate_venv:main
     - sepal_ipyvuetify = pysepal.bin.sepal_ipyvuetify:main
     - entry_point = pysepal.bin.entry_point:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -39,6 +37,7 @@ requirements:
     - earthengine-api >1.6.0
     - colorama
     - pipreqs
+    - rasterio
     - rioxarray
     - dask
     - geopandas >=0.14.0
@@ -46,18 +45,20 @@ requirements:
     - jupyter-server-proxy
     - planet >=2.0,<3.0
     - pyarrow
-    - localtileserver >=0.10.1
+    - localtileserver >=1.0.0
     - pygaul >=0.4.2
     - pygadm >=0.5.0
+    - babel >=2.17,<3
     - python-box
     - tqdm
     - deprecated >=1.2.14
     - anyascii
     - natsort
     - typing-extensions
-    - solara
-    - ee-client >=3.0.0
-    - pysepal-api >=0.2.0
+    - pydantic
+    - solara >=1.64.1,<2
+    - ee-client >=3.4.0,<4
+    - pysepal-api >=0.3.0,<0.4
     - colorlog
     - reactivex
 
@@ -65,10 +66,9 @@ test:
   imports:
     - pysepal
   commands:
+    - pip check
     - module_deploy --help
     - module_factory --help
-    - module_l10n --help
-    - module_theme --help
     - module_venv --help
     - activate_venv --help
     - sepal_ipyvuetify --help
